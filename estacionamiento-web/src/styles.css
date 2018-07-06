@@ -1,0 +1,39 @@
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+
+body {
+	margin: 0;
+	font-family: Roboto, sans-serif;
+}
+
+.loading-shade {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 56px;
+	right: 0;
+	background: rgba(0, 0, 0, 0.15);
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.table-container {
+	display: flex;
+	flex-direction: column;
+/* 	max-height: 500px; */
+/* 	min-width: 300px; */
+	position: relative;
+}
+
+.table {
+	overflow: auto;
+/* 	min-height: 300px; */
+}
+
+.no-result {
+	text-align: center;
+	padding-top: 1em;
+}
