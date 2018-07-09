@@ -1,10 +1,11 @@
 <mat-card>
 	<mat-card-header>
-		<mat-card-title>Lista de Vehiculos en el parqueadero</mat-card-title>
+		<mat-card-title><h2>Lista de Vehiculos en el parqueadero </h2></mat-card-title>		
 	</mat-card-header>
 
+	<button mat-raised-button color="primary" [routerLink]="['/vehicle-entry']">Registrar ingreso</button>
+
 	<mat-card-content>
-	
 	<div class="table-container mat-elevation-z8">
 		<div class="loading-shade" *ngIf="isLoadingResults">
 	    	<mat-spinner *ngIf="isLoadingResults"></mat-spinner>

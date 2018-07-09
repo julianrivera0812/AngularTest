@@ -14,5 +14,16 @@ export class VehicleService {
     return this.http.get<any>('//localhost:8080/api/vehicle/getVehicleInParking', {params: params});
   }
 
+  registerEntry(vehicle: any): Observable<any> {
+    let result: Observable<Object>;
+    if (vehicle.vehicleType === 'CAR') {
+      result = this.http.post('//localhost:8080/api/vehicle/registerCarEntry', vehicle);
+    } else if (vehicle.vehicleType === 'MOTORCYCLE') {
+      result = this.http.post('//localhost:8080/api/vehicle/registerMotorcycleEntry', vehicle);
+    } else {
+      console.log('Error en el tipo de vehiculo');
+    }
+    return result;
+  }
 
 }
