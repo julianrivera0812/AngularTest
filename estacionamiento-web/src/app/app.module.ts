@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 
 import {MatButtonModule, MatCardModule, MatInputModule, MatToolbarModule, MatTableModule} from '@angular/material';
 import {MatPaginatorModule, MatProgressSpinnerModule, MatSelectModule, MatGridListModule} from '@angular/material';
-import {MatDialogModule} from '@angular/material';
+import {MatDialogModule, MatIconModule} from '@angular/material';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -51,6 +51,7 @@ const appRoutes: Routes = [
     MatSelectModule,
     MatGridListModule,
     MatDialogModule,
+    MatIconModule,
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],

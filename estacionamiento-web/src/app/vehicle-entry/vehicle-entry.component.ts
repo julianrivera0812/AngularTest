@@ -31,17 +31,46 @@ export class VehicleEntryComponent implements OnInit {
     this.vehicleService.registerEntry(form).subscribe(result => {
       this.gotoList();
     }, error => {
-      console.log(error);
-      if (error instanceof HttpErrorResponse) {
-        if (error.status === 400) {
-          console.log('BAD REQUEST' + error.error);
-        }
+      //      console.log(error);
+      //      if (error instanceof HttpErrorResponse) {
+      //        if (error.status === 400) {
+      //          console.log('BAD REQUEST' + error.error);
+      //        }
+      //
+      //        this.dialog.open(ErrorDialogComponent, {
+      //          data: error.error
+      //        });
+      //      }
+      /**/
+      console.error(error);
 
-        this.dialog.open(ErrorDialogComponent, {
-          width: '250px',
-          data: error.error
-        });
+      if (error instanceof HttpErrorResponse) {
+        if (!navigator.onLine) {
+
+          this.dialog.open(ErrorDialogComponent, {
+            data: {message: 'No Internet Connection'}
+          });
+
+        } else if (error.status === 400 || error.status === 500) {
+
+          this.dialog.open(ErrorDialogComponent, {
+            data: error.error
+          });
+
+        } else {
+
+          this.dialog.open(ErrorDialogComponent, {
+            data: {code: error.status, message: error.statusText}
+          });
+
+        }
+      } else {
+        // Handle Client Error (Angular Error, ReferenceError...)
+        //        router.navigate(['/error'], {queryParams: {error: error}});
+        // TODO
+        console.error('Implementar pagina error', error);
       }
+
     });
   }
 
